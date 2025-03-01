@@ -66,6 +66,10 @@ The API provides the following endpoints:
 The problem in /buggy-endpoint lies in how Node handles synchronous and asynchronous tasks. The while loop with the stop parameter blocks the Event Loop. Node executes synchronous code first before processing any asynchronous tasks, As the while is a blocking operation, the Event Loop cannot advance to the next execution, the setTimeout is an asynchronous operation that is placed in the Event Loop's timer queue, however, as the while blocks the main execution, Node never gets to process the setTimeout until the cycle ends, as the Event Loop is trapped, it cannot handle new HTTP requests and this causes the server to block completely, affecting its responsiveness.
 
 
+https://github.com/user-attachments/assets/7e85d40e-2e37-4cfa-a3c0-957f58af3b26
+
+
+
 ## Design Patterns Used
 
 1. **Singleton Pattern**: Used in the dependency injection container and worker pool
@@ -95,7 +99,7 @@ pnpm install
 
 ```bash
 # Start the development server
-pnpm dev
+pnpm run dev
 ```
 
 The server will start on port 3000. You can access the API at `http://localhost:3000/api`.
